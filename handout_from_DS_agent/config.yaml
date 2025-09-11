@@ -1,0 +1,19 @@
+data:
+  train_csv: train.csv
+  test_csv: test.csv
+
+train:
+  valid_size: 0.10
+  random_state: 42
+  early_stopping_rounds: 300
+  num_boost_round: 6000
+
+model:
+  eta: 0.03
+  max_depth: 7
+  min_child_weight: 3
+  subsample: 0.85
+  colsample_bytree: 0.85
+  reg_lambda: 1.0
+  reg_alpha: 0.0
+  tree_method: hist
