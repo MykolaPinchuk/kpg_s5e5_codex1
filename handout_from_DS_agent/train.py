@@ -24,10 +24,11 @@ def rmsle_from_logspace(y_log_true, y_log_pred) -> float:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-dir", default="../data")
-    parser.add_argument("--config", default="config.yaml")
-    parser.add_argument("--out", default="model.joblib")
-    parser.add_argument("--metrics", default="metrics.json")
+    here = os.path.dirname(__file__)
+    parser.add_argument("--data-dir", default=os.path.join(here, "data_sample"))
+    parser.add_argument("--config", default=os.path.join(here, "config.yaml"))
+    parser.add_argument("--out", default=os.path.join(here, "model.joblib"))
+    parser.add_argument("--metrics", default=os.path.join(here, "metrics.json"))
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -89,4 +90,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

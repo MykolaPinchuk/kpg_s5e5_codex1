@@ -6,9 +6,10 @@ import pandas as pd
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-dir", default="../data")
-    parser.add_argument("--model", default="model.joblib")
-    parser.add_argument("--out", default="submission.csv")
+    here = os.path.dirname(__file__)
+    parser.add_argument("--data-dir", default=os.path.join(here, "data_sample"))
+    parser.add_argument("--model", default=os.path.join(here, "model.joblib"))
+    parser.add_argument("--out", default=os.path.join(here, "submission.csv"))
     args = parser.parse_args()
 
     test_csv = os.path.join(args.data_dir, "test.csv")
@@ -25,4 +26,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
